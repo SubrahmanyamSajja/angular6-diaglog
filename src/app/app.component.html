@@ -1,0 +1,21 @@
+<div>
+    <a routerLink="/dashboard">Dashbaord</a> |
+    <a routerLink="/employees">Employee</a> |
+    <a routerLink="/users">Users</a> |
+
+</div>
+<router-outlet></router-outlet>
+<button (click)="send()">Send</button>
+<button (click)="open(1)">Open Dashbaord</button>
+<br />
+<button (click)="open(2)">Open Users</button>
+<button (click)="open(3)">Open Employee</button>
+<div>
+    <button (click)="confirm()">Confirm</button>
+    <span>Confirm : {{answer}}</span>
+</div>
+<div>
+    <button (click)="alert()">Alert</button>
+    <span>Alert : {{alertAns}}</span>
+</div>
+<app-dialogs></app-dialogs>

@@ -1,0 +1,20 @@
+<ng-container #dialogs>
+
+  </ng-container>
+  <div class="min-container">
+      <div class="ui-dialog minimize" *ngFor="let dialog of openedDialogs;let ind=index;">
+      <div class="ui-dialog-titlebar ui-widget-header ">
+        <span class="ui-dialog-title">{{dialog.heading}}</span>
+        <div class="ui-dialog-titlebar-buttonpane">
+          <a class="ui-state-default" title="Close" (click)="hide(ind)"><span class="ui-icon ui-icon-close">Close</span>
+          </a>
+          <a class="ui-state-default" title="Maximize" (click)="maximize(ind)">
+            <span class="ui-icon ui-icon-extlink" [class.ui-icon-newwin]="isMaxmised">Maximize</span>
+          </a>
+          <a class="ui-state-default" title="Minimize" (click)="minimize(ind)">
+            <span class="ui-icon ui-icon-minus" [class.ui-icon-newwin]="dialog.isMinimized">Minimize</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

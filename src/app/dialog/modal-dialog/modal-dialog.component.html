@@ -1,0 +1,35 @@
+<div class="ui-dialg-backdrop"  *ngIf="dialogMode!='dialog'" (click)="blink()"></div>
+<div class="ui-dialog ui-draggable" [class.active]="clickInSide" [class.blink]="blinkMe"  [class.maximize]="isMaxmised" [class.hide]="isMinimized"
+  [class.dialog-collapse]="isCollapsed" [class.resizing]="(mode!='MOVE' && mouseDown) || isMinimized || isMaxmised">
+  <div class="ui-dialog-titlebar ui-widget-header ">
+    <span class="ui-dialog-title">{{defaultOptions?.heading}}</span>
+    <div class="ui-dialog-titlebar-buttonpane" *ngIf="dialogMode=='dialog'">
+      <a class="ui-state-default" title="Close" (click)="hide()"><span class="ui-icon ui-icon-close">Close</span>
+      </a>
+      <a class="ui-state-default" title="Collapse" (click)="isCollapsed=!isCollapsed">
+        <span class="ui-icon ui-icon-triangle-1-s" [class.ui-icon-newwin]="isCollapsed">Collapse</span>
+      </a>
+      <a class="ui-state-default" title="Maximize" (click)="maximize()">
+        <span class="ui-icon ui-icon-extlink" [class.ui-icon-newwin]="isMaxmised">Maximize</span>
+      </a>
+      <a class="ui-state-default" title="Minimize" (click)="minimize()">
+        <span class="ui-icon ui-icon-minus" [class.ui-icon-newwin]="isMinimized">Minimize</span>
+      </a>
+    </div>
+  </div>
+  <div id="ui-id-15" class="ui-dialog-content ui-widget-content ui-dialog-normal">
+    <div>
+      <div class="alert-content" *ngIf="dialogMode!='dialog'" [innerHTML]="defaultOptions?.message"></div>
+      <ng-container #content>
+
+      </ng-container>
+      <div class="alert-btns" *ngIf="dialogMode!='dialog'">
+        <ng-container *ngFor="let btn of defaultOptions.buttons">
+            <button class="{{btn.cssClass}}" (click)="send(btn)">{{btn.text}}</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="resize" *ngIf="dialogMode=='dialog'"><span class="ui-icon ui-icon-resize "></span></div>
+
+</div>
