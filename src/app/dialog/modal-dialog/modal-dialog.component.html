@@ -1,5 +1,5 @@
 <div class="ui-dialg-backdrop"  *ngIf="dialogMode!='dialog'" (click)="blink()"></div>
-<div class="ui-dialog ui-draggable" [class.active]="clickInSide" [class.blink]="blinkMe"  [class.maximize]="isMaxmised" [class.hide]="isMinimized"
+<div class="ui-dialog ui-draggable" [class.active]="clickInSide" [class.shakeMe]="blinkMe"  [class.maximize]="isMaxmised" [class.hide]="isMinimized"
   [class.dialog-collapse]="isCollapsed" [class.resizing]="(mode!='MOVE' && mouseDown) || isMinimized || isMaxmised">
   <div class="ui-dialog-titlebar ui-widget-header ">
     <span class="ui-dialog-title">{{defaultOptions?.heading}}</span>
